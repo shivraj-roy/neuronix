@@ -1,19 +1,41 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link as LinkScroll } from "react-scroll";
 
-const NavLink = ({ title }) => {
-   return (
-      <LinkScroll className="base-bold text-p4 uppercase transition-colors duration-500 hover:text-p1 cursor-pointer max-lg:my-4 max-lg:h5">
+const Header = () => {
+   const [hasScroll, setHasScroll] = useState(false);
+   const [isOpen, setIsOpen] = useState(false);
+
+   useEffect(() => {
+      const handleScroll = () => {
+         setHasScroll(window.scrollY > 32);
+      };
+      window.addEventListener("scroll", handleScroll);
+
+      return () => {
+         window.removeEventListener("scroll", handleScroll);
+      };
+   }, []);
+
+   const NavLink = ({ title }) => (
+      <LinkScroll
+         onClick={() => setIsOpen(false)}
+         to={title}
+         offset={-100}
+         smooth
+         spy
+         activeClass="nav-active"
+         className="base-bold text-p4 uppercase transition-colors duration-500 hover:text-p1 cursor-pointer max-lg:my-4 max-lg:h5"
+      >
          {title}
       </LinkScroll>
    );
-};
-
-const Header = () => {
-   const [isOpen, setIsOpen] = useState(false);
 
    return (
-      <header className="fixed top-0 left-0 z-50 w-full py-10">
+      <header
+         className={`fixed top-0 left-0 z-50 w-full py-10 transition-all duration-500 max-lg:py-4 ${
+            hasScroll && "py-2 bg-black-100 backdrop-blur-[8px]"
+         }`}
+      >
          <div className="container flex h-14 items-center max-lg:px-5">
             <a href="/" className="lg:hidden flex-1 cursor-pointer z-2">
                <img
@@ -33,15 +55,15 @@ const Header = () => {
                   <nav className="max-lg:relative max-lg:z-2 max-lg:my-auto">
                      <ul className="flex max-lg:block max-lg:px-12">
                         <li className="nav-li">
-                           <NavLink title="Features" />
+                           <NavLink title="features" />
                            <div className="dot" />
-                           <NavLink title="Pricing" />
+                           <NavLink title="pricing" />
                         </li>
 
                         <li className="nav-logo">
                            <LinkScroll
-                              to="home"
-                              offset={-100}
+                              to="hero"
+                              offset={-250}
                               spy
                               smooth
                               className={`max-lg:hidden transition-transform duration-500 cursor-pointer`}
