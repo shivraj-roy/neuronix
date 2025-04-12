@@ -39,7 +39,7 @@ const Header = () => {
          <div className="container flex h-14 items-center max-lg:px-5">
             <a href="/" className="lg:hidden flex-1 cursor-pointer z-2">
                <img
-                  src="/images/xora.svg"
+                  src="/images/neuronix.webp"
                   alt="neuronix-logo"
                   width={115}
                   height={55}
@@ -69,7 +69,7 @@ const Header = () => {
                               className={`max-lg:hidden transition-transform duration-500 cursor-pointer`}
                            >
                               <img
-                                 src="/images/xora.svg"
+                                 src="/images/neuronix.webp"
                                  alt="logo"
                                  width={160}
                                  height={55}

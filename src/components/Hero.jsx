@@ -11,11 +11,11 @@ const Hero = () => {
                      Video Editing
                   </div>
                   <h1 className="mb-6 h1 text-p4 uppercase max-lg:mb-7 max-lg:h2 max-md:mb-4 max-md:text-5xl max-md:leading-12">
-                     Amazingly Simple
+                     Remarkably Easy
                   </h1>
                   <p className="max-w-440 mb-14 body-1 max-md:mb-10">
-                     We designed a Neuronix AI video editor that is simple to
-                     use and easy to understand. You can edit your videos in
+                     We have created a Neuronix AI video editor that is easy to
+                     use and easily understandable. You can edit videos in
                      minutes, not hours.
                   </p>
                   <LinkScroll to="features" offset={-100} smooth spy>
