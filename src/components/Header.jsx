@@ -20,7 +20,7 @@ const Header = () => {
       <LinkScroll
          onClick={() => setIsOpen(false)}
          to={title}
-         offset={-100}
+         offset={title === "features" ? -100 : -50}
          smooth
          spy
          activeClass="nav-active"
